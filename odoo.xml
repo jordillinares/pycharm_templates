@@ -1,0 +1,331 @@
+<templateSet group="Odoo">
+  <template name="form" value="&lt;record id=&quot;$id$&quot; model=&quot;ir.ui.view&quot;&gt;&#10;    &lt;field name=&quot;name&quot;&gt;$modelname$&lt;/field&gt;&#10;    &lt;field name=&quot;model&quot;&gt;$model$&lt;/field&gt;&#10;    &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;&#10;        &lt;form string=&quot;$string$&quot;&gt;&#10;            &lt;sheet&gt;&#10;                &lt;group&gt;&#10;                    &lt;field name=&quot;$name$&quot;/&gt;&#10;                &lt;/group&gt;&#10;            &lt;/sheet&gt;&#10;        &lt;/form&gt;&#10;    &lt;/field&gt;&#10;&lt;/record&gt;" description="Create Form View" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="modelname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="model" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="tree" value="&lt;record id=&quot;$id$&quot; model=&quot;ir.ui.view&quot;&gt;&#10;    &lt;field name=&quot;name&quot;&gt;$view_name$&lt;/field&gt;&#10;    &lt;field name=&quot;model&quot;&gt;$model$&lt;/field&gt;&#10;    &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;&#10;        &lt;tree string=&quot;$string$&quot;&gt;&#10;            &lt;field name=&quot;$field1$&quot;/&gt;&#10;            $cursor$&#10;        &lt;/tree&gt;&#10;    &lt;/field&gt;&#10;&lt;/record&gt;" description="Create Tree View" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="view_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="model" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="cursor" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="data" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;openerp&gt;&#10;    &lt;data$noupdate$&gt;&#10;        &#10;        $cursor$&#10;    &#10;    &lt;/data&gt;&#10;&lt;/openerp&gt;" description="Create the main tags" toReformat="false" toShortenFQNames="true">
+    <variable name="noupdate" expression="" defaultValue="&quot; noupdate='1'&quot;" alwaysStopAt="true" />
+    <variable name="cursor" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="form_inherit" value="&lt;!-- Inherit $model$ form view --&gt;&#10;&lt;record id=&quot;$id$&quot; model=&quot;ir.ui.view&quot;&gt;&#10;    &lt;field name=&quot;name&quot;&gt;$viewname$&lt;/field&gt;&#10;    &lt;field name=&quot;model&quot;&gt;$model$&lt;/field&gt;&#10;    &lt;field name=&quot;inherit_id&quot; ref=&quot;$parent_id$&quot;/&gt;&#10;    &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;&#10;        &#10;        &lt;xpath expr=&quot;//$node$[@name='$name$']&quot; position=&quot;$pos$&quot;&gt;&#10;            &lt;field name=&quot;$newname$&quot;/&gt;&#10;        &lt;/xpath&gt;&#10;        &#10;    &lt;/field&gt;&#10;&lt;/record&gt;" description="Inherit Existing Form View" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="viewname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="model" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="parent_id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="node" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="pos" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="newname" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="tree_inherit" value="&lt;record id=&quot;$id$&quot; model=&quot;ir.ui.view&quot;&gt;&#10;    &lt;field name=&quot;name&quot;&gt;$view_name$&lt;/field&gt;&#10;    &lt;field name=&quot;model&quot;&gt;$model$&lt;/field&gt;&#10;    &lt;field name=&quot;inherit_id&quot; ref=&quot;$xml_id$&quot;/&gt;&#10;    &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;&#10;        &#10;        &lt;xpath expr=&quot;//$node$[@name='$name$']&quot; position=&quot;$pos$&quot;&gt;&#10;            &lt;field name=&quot;$field1$&quot; $invisible$/&gt;&#10;        &lt;/xpath&gt;&#10;        &#10;    &lt;/field&gt;&#10;&lt;/record&gt;" description="Inherit Existing Tree View" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="view_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="model" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="xml_id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="node" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="pos" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="invisible" expression="" defaultValue="&quot;invisible='1'&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="view_action" value="&lt;record id=&quot;$id$&quot; model=&quot;ir.actions.act_window&quot;&gt;&#10;    &lt;field name=&quot;name&quot;&gt;$act_window_name$&lt;/field&gt;&#10;    &lt;field name=&quot;type&quot;&gt;ir.actions.act_window&lt;/field&gt;&#10;    &lt;field name=&quot;res_model&quot;&gt;$model$&lt;/field&gt;&#10;    &lt;field name=&quot;view_mode&quot;&gt;$modes$&lt;/field&gt;&#10;    &lt;field name=&quot;help&quot; type=&quot;html&quot;&gt;&#10;        &lt;p class=&quot;oe_view_nocontent_create&quot;&gt;&#10;            $text$&#10;        &lt;/p&gt;&#10;    &lt;/field&gt;&#10;&lt;/record&gt;" description="Create new Action" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="act_window_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="model" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="modes" expression="" defaultValue="&quot;tree,form&quot;" alwaysStopAt="true" />
+    <variable name="text" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="menuitem_categ" value="&lt;menuitem id=&quot;$menuid$&quot; name=&quot;$name$&quot; parent=&quot;$parent_id$&quot; sequence=&quot;$seq$&quot;/&gt;" description="Create New Menu Item for Categroization" toReformat="false" toShortenFQNames="true">
+    <variable name="menuid" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="parent_id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="seq" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="menuitem_action" value="&lt;menuitem id=&quot;$menuid$&quot; name=&quot;$name$&quot; parent=&quot;$parentid$&quot; action=&quot;$action$&quot; sequence=&quot;$seq$&quot;/&gt;" description="Create New Menu Item for Actions" toReformat="false" toShortenFQNames="true">
+    <variable name="menuid" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="parentid" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="action" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="seq" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="nested_group" value="&lt;group string=&quot;$string$&quot;&gt;&#10;    &lt;group&gt;&#10;        &lt;field name=&quot;$field1$&quot;/&gt;&#10;    &lt;/group&gt;&#10;    &lt;group&gt;&#10;        &lt;field name=&quot;$field2$&quot;/&gt;&#10;    &lt;/group&gt;&#10;&lt;/group&gt;" description="Create Nested Groups" toReformat="false" toShortenFQNames="true">
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field2" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="domain" value="domain=&quot;[('', '=', ), ]&quot;" description="Add domain to your field" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="class" value="class $newclass$(models.Model):&#10;    _name = '$model$'&#10;    _rec_name = '$recname$'&#10;    _description = '$description$'&#10;&#10;    name = fields.Char('$field1$')&#10;" description="Create New Odoo class" toReformat="false" toShortenFQNames="true">
+    <variable name="newclass" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="model" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="recname" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+    <variable name="description" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field1" expression="" defaultValue="&quot;Name&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_integer" value="$new_field$ = fields.Integer(string=&quot;$string$&quot;, required=False)" description="Add new field of type Integer" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_char" value="$new_field$ = fields.Char(string=&quot;$string$&quot;, required=$required$, $cursor$)" description="Add new field of type Char" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="&quot;Name&quot;" alwaysStopAt="true" />
+    <variable name="required" expression="" defaultValue="&quot;False&quot;" alwaysStopAt="true" />
+    <variable name="cursor" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_text" value="$new_field$ = fields.Text(string=&quot;$string$&quot;, required=$required$)" description="Add new field of type Text" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="required" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_many2one" value="$new_fiel$_id = fields.Many2one(comodel_name=&quot;$comodel$&quot;, string=&quot;$string$&quot;,&#10;    required=$required$)" description="Add new field of type Many2one" toReformat="false" toShortenFQNames="true">
+    <variable name="new_fiel" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="comodel" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="required" expression="" defaultValue="&quot;False&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_one2many" value="$new_field$_ids = fields.One2many(comodel_name=&quot;$comodel$&quot;, inverse_name=&quot;$inv$_id&quot;,&#10;    string=&quot;$string$&quot;, required=$required$)" description="Add new field of type One2many" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="comodel" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="inv" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="required" expression="" defaultValue="&quot;False&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_boolean" value="$new_field$ = fields.Boolean(string=&quot;$string$&quot;, required=$required$)" description="Add new field of type Boolean" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="required" expression="" defaultValue="&quot;False&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_html" value="$new_field$ = fields.HTML(string=&quot;$string$&quot;)" description="Add new field of type HTML" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_float" value="$new_field$ = fields.Float(string=&quot;$string$&quot;, required=False,&#10;    compute=$function$)" description="Add new field of type Float" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="function" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_date" value="$new_field$ = fields.Date(string=&quot;$string$&quot;, required=$required$,&#10;    default=$default$)" description="Add new field of type Date" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="&quot;date&quot;" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="&quot;Date&quot;" alwaysStopAt="true" />
+    <variable name="required" expression="" defaultValue="&quot;False&quot;" alwaysStopAt="true" />
+    <variable name="default" expression="" defaultValue="&quot;lambda *a: time.strftime('%Y-%m-%d)&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_datetime" value="$new_field$ = fields.Datetime(string=&quot;$string$&quot;, required=$required$,&#10;    default=$default$)" description="Add new field of type DateTime" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="&quot;date&quot;" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="&quot;Date&quot;" alwaysStopAt="true" />
+    <variable name="required" expression="" defaultValue="&quot;False&quot;" alwaysStopAt="true" />
+    <variable name="default" expression="" defaultValue="&quot;lambda *a: time.strftime('%Y-%m-%d %H:%M:%S')&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_selection" value="$new_field$ = fields.Selection(string=&quot;$string$&quot;, required=$required$,&#10;    selection=[&#10;        ('$opc1$', '$val1$'),&#10;        ('$opc2$', '$val2$'),&#10;        ('$opc3$'. '$val3$'),&#10;    ])" description="Add new field of type Selection" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="required" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="opc1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="val1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="opc2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="val2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="opc3" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="val3" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="field_many2many" value="$new_field$_ids = fields.Many2many(comodel_name=&quot;$comodelname$&quot;, relation=&quot;$rel$&quot;,&#10;    column1=&quot;$col1$_id&quot;, column2=&quot;$col2$_id&quot;,&#10;    string=&quot;$string$&quot;)" description="Add new field of type Many2many" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="comodelname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="rel" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="col1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="col2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="inherit_class" value="class $inheritclass$(models.Model):&#10;    _inherit = '$model$'&#10;&#10;    $cursor$&#10;" description="Inherit/Extend Existing Odoo class" toReformat="false" toShortenFQNames="true">
+    <variable name="inheritclass" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="model" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="cursor" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="security_category" value="&lt;record id=&quot;$id$&quot; model=&quot;ir.module.category&quot;&gt;&#10;    &lt;field name=&quot;name&quot;&gt;$name$&lt;/field&gt;&#10;    &lt;field name=&quot;sequence&quot; eval=&quot;$seq$&quot;/&gt;&#10;&lt;/record&gt;" description="Add new Security Category" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="seq" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="security_group" value="&lt;record id=&quot;$id$&quot; model=&quot;res.groups&quot;&gt;&#10;    &lt;field name=&quot;name&quot;&gt;$name$&lt;/field&gt;&#10;    &lt;field name=&quot;category_id&quot; ref=&quot;$id_xml$&quot;/&gt;&#10;    &lt;field name=&quot;implied_ids&quot; eval=&quot;[(4, ref('base.group_user'))$implied_ids$]&quot;/&gt;&#10;&lt;/record&gt;" description="Create new Group, then assign new permissions" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="id_xml" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="implied_ids" expression="" defaultValue="&quot;, (4, ref('module.group_name'))&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="security_rule" value="&lt;record id=&quot;$id$&quot; model=&quot;ir.rule&quot;&gt;&#10;    &lt;field name=&quot;name&quot;&gt;$name$&lt;/field&gt;&#10;    &lt;field name=&quot;model_id&quot; ref=&quot;$xml_id$&quot; /&gt;&#10;    &lt;field name=&quot;domain_force&quot;&gt;[$domain_force$]&lt;/field&gt;&#10;    &lt;field name=&quot;perm_write&quot; eval=&quot;$permw$&quot;/&gt;&#10;    &lt;field name=&quot;perm_create&quot; eval=&quot;$permc$&quot;/&gt;&#10;    &lt;field name=&quot;perm_read&quot; eval=&quot;$permr$&quot;/&gt;&#10;    &lt;field name=&quot;perm_unlink&quot; eval=&quot;$permu$&quot;/&gt;&#10;    &lt;!-- You can attach this rule to a specific group, Or make it Global --&gt;&#10;    &lt;field name=&quot;groups&quot; eval=&quot;[(4, ref('group_id'))]&quot;/&gt;&#10;    &lt;!--&lt;field name=&quot;global&quot; eval=&quot;$global$&quot;/&gt; --&gt;&#10;&lt;/record&gt;" description="Create new Security Rules" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="xml_id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="domain_force" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="permw" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="permc" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="permr" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="permu" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="global" expression="" defaultValue="&quot;0&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="notebook" value="&lt;notebook&gt;&#10;    &lt;page string=&quot;$pagename$&quot;&gt;&#10;        &lt;group&gt;&#10;            &lt;field name=&quot;$field1$&quot;/&gt;&#10;        &lt;/group&gt;&#10;    &lt;/page&gt;&#10;&lt;/notebook&gt;" description="Add Notebook and a page" toReformat="false" toShortenFQNames="true">
+    <variable name="pagename" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field1" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="page" value="&lt;page string=&quot;$string$&quot;&gt;&#10;    &lt;group&gt;&#10;        &lt;field name=&quot;$field1$&quot;/&gt;&#10;    &lt;/group&gt;&#10;&lt;/page&gt;" description="Add new page" toReformat="false" toShortenFQNames="true">
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field1" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="field_binary" value="$new_field$ = fields.Binary(string=&quot;$string$&quot;,  )" description="Add new field of type Binary" toReformat="false" toShortenFQNames="true">
+    <variable name="new_field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="init" value="# -*- encoding: utf-8 -*-&#10;####################################################################&#10;#&#10;#    OpenERP, Open Source Management Solution&#10;#    Copyright (C) 2004- $year$ Tiny SPRL (http://tiny.be). All Rights Reserved&#10;#&#10;#    This module,&#10;#    Copyright (C) $year$ $user$&#10;#&#10;#    This program is free software: you can redistribute it and/or modify&#10;#    it under the terms of the GNU Affero General Public License as&#10;#    published by the Free Software Foundation, either version 3 of the&#10;#    License, or (at your option) any later version.&#10;#&#10;#    This program is distributed in the hope that it will be useful,&#10;#    but WITHOUT ANY WARRANTY; without even the implied warranty of&#10;#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10;#    GNU General Public License for more details.&#10;#&#10;#    You should have received a copy of the GNU General Public License&#10;#    along with this program.  If not, see http://www.gnu.org/licenses/.&#10;#&#10;#####################################################################&#10;&#10;import $cursor$" description="Insert __init__ license comments and import" toReformat="false" toShortenFQNames="true">
+    <variable name="year" expression="date(&quot;yyyy&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="user" expression="user()" defaultValue="" alwaysStopAt="true" />
+    <variable name="cursor" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="openerp" value="{&#10;    'name': '$name$',&#10;    'version': '$version$',&#10;    'author': '$user$',&#10;    'category': '$category$',&#10;    'summary': '$summary$',&#10;    'complexity': 'easy',&#10;    'description': &quot;&quot;&quot;&#10;$title$&#10;================&#10;&#10;This module $description$&#10;&quot;&quot;&quot;,&#10;    'website': 'http://www.bigandopen.com',&#10;    'depends': [&#10;    &#9;'$dep1$',&#10;    &#9;'$dep2$',&#10;    ],&#10;    'conflicts': [&#10;    ],&#10;    'data': [&#10;        # Security&#10;        '$data1$',&#10;        &#10;        # Data&#10;        '$data2$',&#10;        &#10;        # Views&#10;        '$data3$',&#10;    ],&#10;    'qweb': [&#10;    ],&#10;    'demo': [&#10;    ],&#10;    'test': [&#10;    ],&#10;    'installable': $installable$,&#10;    'auto_install': $auto_install$,&#10;}" description="Add __openerp__ data dictionary" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="version" expression="" defaultValue="&quot;1.0&quot;" alwaysStopAt="true" />
+    <variable name="user" expression="user()" defaultValue="" alwaysStopAt="true" />
+    <variable name="category" expression="" defaultValue="&quot;Others&quot;" alwaysStopAt="true" />
+    <variable name="summary" expression="" defaultValue="&quot;Short description&quot;" alwaysStopAt="true" />
+    <variable name="title" expression="" defaultValue="&quot;Module title&quot;" alwaysStopAt="true" />
+    <variable name="description" expression="" defaultValue="&quot;This module blah...&quot;" alwaysStopAt="true" />
+    <variable name="dep1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="dep2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="data1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="data2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="data3" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="installable" expression="" defaultValue="&quot;True&quot;" alwaysStopAt="true" />
+    <variable name="auto_install" expression="" defaultValue="&quot;False&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+</templateSet>
